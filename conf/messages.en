@@ -30,7 +30,7 @@ views.show=Show
 views.edit=Edit
 views.delete=Delete
 views.none=None
-view.back=Back
+views.back=Back
 views.next=Next
 views.previous=Previous
 views.nbPerPages=Number per pages
@@ -81,13 +81,13 @@ views.planes.show.flights=Under way flights
 
 # --- PlaneTypes
 
-views.planes.description=Description
-views.planes.fee1=Fee price 1
-views.planes.fee2=Fee price 2
-views.planes.fee3=Fee price 3
-views.planes.feetime1=Fee time 1
-views.planes.feetime2=Fee time 2
-views.planes.feetime3=Fee time 3
+views.planetypes.description=Description
+views.planetypes.fee1=Fee price 1
+views.planetypes.fee2=Fee price 2
+views.planetypes.fee3=Fee price 3
+views.planetypes.feetime1=Fee time 1
+views.planetypes.feetime2=Fee time 2
+views.planetypes.feetime3=Fee time 3
 
 views.planetype.index.title=Plane types management
 views.planetypes.index.add=Add a new type
@@ -96,6 +96,14 @@ views.planetypes.index.description=Description
 
 views.planetypes.new.title=Add a plane type
 views.planetypes.new.subtitle=Entering a new type
+views.planetypes.new.submit=Add a new plane type
+
+views.planetypes.edit.title=Edit a plane type
+views.planetypes.edit.subtitle=Changing a plane type
+views.planetypes.edit.submit=Edit the plane type
+
+views.planetypes.show.title=Details of a plane type
+views.planetypes.show.subtitle=Details of plane type n°{0}
 
 # --- Flights
 views.flights.flightReduction=Flight reduction
@@ -128,6 +136,7 @@ models.plane.toString=Plane n°{0} registered {1}
 models.user.toString=User n°{0} : {1}
 models.flight.toString=Flight n°{0} on {1} with a duration of {2} hour(s)
 models.planetype.toString=Type n°{0} {1}
+models.account.toString=The current account balance is {0} Euros, and there is {1} hour(s) remaining for the first fee, {2} for the second and {3} for the third.
 
 # --- Controllers messages
 controllers.error=An error has occured

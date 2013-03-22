@@ -81,13 +81,13 @@ views.planes.show.flights=Vols en cours
 
 # --- PlaneTypes
 
-views.planes.description=Description
-views.planes.fee1=Prix forfait 1
-views.planes.fee2=Prix forfait 2
-views.planes.fee3=Prix forfait 3
-views.planes.feetime1=Heures forfait 1
-views.planes.feetime2=Heures forfait 2
-views.planes.feetime3=Heures forfait 3
+views.planetypes.description=Description
+views.planetypes.fee1=Prix forfait 1
+views.planetypes.fee2=Prix forfait 2
+views.planetypes.fee3=Prix forfait 3
+views.planetypes.feetime1=Heures forfait 1
+views.planetypes.feetime2=Heures forfait 2
+views.planetypes.feetime3=Heures forfait 3
 
 views.planetype.index.title=Gestion des types d''avions
 views.planetypes.index.add=Ajouter un nouveau type
@@ -96,6 +96,14 @@ views.planetypes.index.description=Descriptif
 
 views.planetypes.new.title=Ajouter un type d''avion
 views.planetypes.new.subtitle=Saisie d''un nouveau type
+views.planetypes.new.submit=Ajouter un type avion
+
+views.planetypes.edit.title=Modifier un type avion
+views.planetypes.edit.subtitle=Modification d''un type avion
+views.planetypes.edit.submit=Modifier le type avion
+
+views.planetypes.show.title=Détails d''un type avion
+views.planetypes.show.subtitle=Détails du type avion n°{0}
 
 # --- Flights
 views.flights.flightReduction=Réduction vol
@@ -135,6 +143,7 @@ models.plane.toString=Avion n°{0} immatriculé {1}
 models.user.toString=Utilisateur n°{0} : {1}
 models.flight.toString=Vol n°{0} du {1} d''une durée de {2} heure(s)
 models.planetype.toString=Type n°{0} {1}
+models.account.toString=Le montant actuel du compte est de {0} Euros, il reste {1} heure(s) sur le forfait 1, {2} sur le forfait 2 et {3} sur le forfait 3
 
 # --- Controllers messages
 controllers.error=Une erreur est survenue

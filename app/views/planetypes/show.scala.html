@@ -4,35 +4,26 @@
 @import helper.twitterBootstrap._
 @import play.i18n._
 
-@main(Messages.get("views.planes.show.title")) {
+@main(Messages.get("views.planetypes.show.title")) {
         
-    <h2>@Messages.get("views.planes.show.subtitle", planeType.id.toString)</h2>
+    <h2>@Messages.get("views.planetypes.show.subtitle", planeType.id.toString)</h2>
     
     <b>@planeType</b>
     <br />
-    <b>@Messages.get("views.planes.matriculation") :</b> @planeType.description   
+    <b>@Messages.get("views.planetypes.description") :</b> @planeType.description   
     <br />
-    <b>@Messages.get("views.planes.price") :</b> @planeType.fee1
+    <b>@Messages.get("views.planetypes.fee1") :</b> @planeType.fee1
     <br />
-    <b>@Messages.get("views.planes.weekReduction") :</b> @planeType.fee2
+    <b>@Messages.get("views.planetypes.fee2") :</b> @planeType.fee2
     <br />
-    <b>@Messages.get("views.planes.planeType") :</b> @planeType.fee3
+    <b>@Messages.get("views.planetypes.fee3") :</b> @planeType.fee3
     <br />
-    <b>@Messages.get("views.planes.weekReduction") :</b> @planeType.fee_time1
+    <b>@Messages.get("views.planetypes.feetime1") :</b> @planeType.fee_time1
     <br />
-    <b>@Messages.get("views.planes.planeType") :</b> @planeType.fee_time2
+    <b>@Messages.get("views.planetypes.feetime2") :</b> @planeType.fee_time2
     <br />
-    <b>@Messages.get("views.planes.planeType") :</b> @planeType.fee_time3
-    <br/>
-    <b>@Messages.get("views.planes.show.flights") : </b>
-    @if(planeType.planes.size == 0) {
-        @Messages.get("views.none")
-    }
-    <ul>
-    @for(plane <- planeType.planes) {
-        <li> @plane </li>
-    }
-    </ul>
+    <b>@Messages.get("views.planetypes.feetime3") :</b> @planeType.fee_time3
+    <br />
     <a href="@request.getHeader("Referer")" class="btn btn-link">@Messages.get("views.back")</a>
 
 }

@@ -4,7 +4,7 @@
 @import helper.twitterBootstrap._
 @import play.i18n._
 
-@main(Messages.get("views.planes.edit.title")) {
+@main(Messages.get("views.planetypes.edit.title")) {
 
     @if(flash.containsKey("error")) {
         <div class="alert alert-error">
@@ -13,19 +13,19 @@
         </div>
     }
     
-    <h2>@Messages.get("views.planes.edit.subtitle")</h2>
+    <h2>@Messages.get("views.planetypes.edit.subtitle")</h2>
     
     @form(routes.PlaneTypes.update(id)) {
         
-        @inputText(planeTypeForm("description"),    '_label -> Messages.get("views.planes.matriculation"))
-        @inputText(planeTypeForm("fee1"),           '_label -> Messages.get("views.planes.matriculation"))
-        @inputText(planeTypeForm("fee2"),           '_label -> Messages.get("views.planes.matriculation"))
-        @inputText(planeTypeForm("fee3"),           '_label -> Messages.get("views.planes.matriculation"))
-        @inputText(planeTypeForm("fee_time1"),      '_label -> Messages.get("views.planes.matriculation"))
-        @inputText(planeTypeForm("fee_time2"),      '_label -> Messages.get("views.planes.matriculation"))
-        @inputText(planeTypeForm("fee_time3"),      '_label -> Messages.get("views.planes.matriculation"))
+        @inputText(planeTypeForm("description"),        '_label -> Messages.get("views.planetypes.description"))
+        @inputText(planeTypeForm("fee1"),               '_label -> Messages.get("views.planetypes.fee1"))
+        @inputText(planeTypeForm("fee2"),               '_label -> Messages.get("views.planetypes.fee2"))
+        @inputText(planeTypeForm("fee3"),               '_label -> Messages.get("views.planetypes.fee3"))
+        @inputText(planeTypeForm("fee_time1"),          '_label -> Messages.get("views.planetypes.feetime1"))
+        @inputText(planeTypeForm("fee_time2"),          '_label -> Messages.get("views.planetypes.feetime2"))
+        @inputText(planeTypeForm("fee_time3"),          '_label -> Messages.get("views.planetypes.feetime3")) 
         
-        <input type="submit" value="@Messages.get("views.planetype.edit.submit")" class="btn">
+        <input type="submit" value="@Messages.get("views.planetypes.edit.submit")" class="btn">
         <a href="@request.getHeader("Referer")" class="btn btn-link">@Messages.get("views.back")</a>
 
     }
