@@ -1,0 +1,33 @@
+@(planetypeForm: Form[PlaneType])
+
+@import helper._
+@import helper.twitterBootstrap._
+@import play.i18n._
+
+@main(Messages.get("views.planetypes.new.title")) {
+
+    @if(flash.containsKey("error")) {
+        <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            @flash.get("error")
+        </div>
+    }
+    
+    <h2>@Messages.get("views.planetypes.new.subtitle")</h2>
+    
+    @form(routes.PlaneTypes.create) {
+        
+        @inputText(planetypeForm("description"), '_label -> Messages.get("views.planes.description"))
+        @inputText(planetypeForm("fee1"), '_label -> Messages.get("views.planes.fee1"))
+        @inputText(planetypeForm("fee2"), '_label -> Messages.get("views.planes.fee2"))
+        @inputText(planetypeForm("fee3"), '_label -> Messages.get("views.planes.fee3"))
+        @inputText(planetypeForm("fee_time1"), '_label -> Messages.get("views.feetime1"))
+        @inputText(planetypeForm("fee_time2"), '_label -> Messages.get("views.planes.feetime2"))
+        @inputText(planetypeForm("fee_time3"), '_label -> Messages.get("views.planes.feetime3"))
+
+        
+        <input type="submit" value="@Messages.get("views.planetype.new.submit")" class="btn">
+        <a href="@request.getHeader("Referer")" class="btn btn-link">@Messages.get("views.back")</a>
+        
+    }
+}

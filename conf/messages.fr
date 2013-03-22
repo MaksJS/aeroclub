@@ -37,6 +37,8 @@ views.nbPerPages=Nombre par pages
 
 # --- Main
 views.main.flightsMenu=Gestion des vols
+views.main.planes=Avions
+views.main.planeTypesMenu=Gestion des types d''avions
 views.main.planesMenu=Gestion des avions
 views.main.switchLanguage=Changer de langue
 views.main.logout=Déconnexion
@@ -58,6 +60,7 @@ views.login.connect.me=Se connecter
 views.planes.matriculation=Immatriculation
 views.planes.price=Prix
 views.planes.weekReduction=Réduction semaine
+views.planetype.planetype=Type d'avion
 
 views.planes.new.title=Ajouter un avion
 views.planes.new.subtitle=Saisie d''un nouvel avion
@@ -75,6 +78,24 @@ views.planes.index.description=Descriptif
 views.planes.show.title=Détails d''un avion
 views.planes.show.subtitle=Détails de l''avion n°{0}
 views.planes.show.flights=Vols en cours
+
+# --- PlaneTypes
+
+views.planes.description=Description
+views.planes.fee1=Prix forfait 1
+views.planes.fee2=Prix forfait 2
+views.planes.fee3=Prix forfait 3
+views.planes.feetime1=Heures forfait 1
+views.planes.feetime2=Heures forfait 2
+views.planes.feetime3=Heures forfait 3
+
+views.planetype.index.title=Gestion des types d''avions
+views.planetypes.index.add=Ajouter un nouveau type
+views.planetypes.index.subtitle=Liste des types d''avion : {0} type(s)
+views.planetypes.index.description=Descriptif
+
+views.planetypes.new.title=Ajouter un type d''avion
+views.planetypes.new.subtitle=Saisie d''un nouveau type
 
 # --- Flights
 views.flights.flightReduction=Réduction vol
@@ -113,6 +134,7 @@ views.users.edit.submit=Modifier votre profil
 models.plane.toString=Avion n°{0} immatriculé {1}
 models.user.toString=Utilisateur n°{0} : {1}
 models.flight.toString=Vol n°{0} du {1} d''une durée de {2} heure(s)
+models.planetype.toString=Type n°{0} {1}
 
 # --- Controllers messages
 controllers.error=Une erreur est survenue
@@ -126,3 +148,5 @@ controllers.application.loginError=Nom d''utilisateur ou mot de passe invalide
 controllers.flights.deleteSuccess=Le vol a été correctement supprimé
 
 controllers.planes.deleteSuccess=L''avion a été correctement supprimé
+
+controllers.planetype.deleteSuccess=Le type d''avion a été correctement supprimé

@@ -1,0 +1,38 @@
+@(planeType: PlaneType)
+
+@import helper._
+@import helper.twitterBootstrap._
+@import play.i18n._
+
+@main(Messages.get("views.planes.show.title")) {
+        
+    <h2>@Messages.get("views.planes.show.subtitle", planeType.id.toString)</h2>
+    
+    <b>@planeType</b>
+    <br />
+    <b>@Messages.get("views.planes.matriculation") :</b> @planeType.description   
+    <br />
+    <b>@Messages.get("views.planes.price") :</b> @planeType.fee1
+    <br />
+    <b>@Messages.get("views.planes.weekReduction") :</b> @planeType.fee2
+    <br />
+    <b>@Messages.get("views.planes.planeType") :</b> @planeType.fee3
+    <br />
+    <b>@Messages.get("views.planes.weekReduction") :</b> @planeType.fee_time1
+    <br />
+    <b>@Messages.get("views.planes.planeType") :</b> @planeType.fee_time2
+    <br />
+    <b>@Messages.get("views.planes.planeType") :</b> @planeType.fee_time3
+    <br/>
+    <b>@Messages.get("views.planes.show.flights") : </b>
+    @if(planeType.planes.size == 0) {
+        @Messages.get("views.none")
+    }
+    <ul>
+    @for(plane <- planeType.planes) {
+        <li> @plane </li>
+    }
+    </ul>
+    <a href="@request.getHeader("Referer")" class="btn btn-link">@Messages.get("views.back")</a>
+
+}

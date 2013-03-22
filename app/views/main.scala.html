@@ -32,7 +32,13 @@
 	          <div class="nav-collapse collapse">
 	            <ul class="nav">
                     <li @if(request.path contains routes.Flights.index().url) { class="active" } ><a href="@routes.Flights.index()">@Messages.get("views.main.flightsMenu")</a></li>
-                    <li @if(request.path contains routes.Planes.index().url)  { class="active" } ><a href="@routes.Planes.index()">@Messages.get("views.main.planesMenu")</a></li>
+                     <li @if((request.path contains routes.Planes.index().url) || (request.path contains routes.PlaneTypes.index().url)) { class="active dropdown" } else { class="dropdown" }>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Messages.get("views.main.planes") <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li @if(request.path contains routes.PlaneTypes.index().url)  { class="active" } ><a href="@routes.PlaneTypes.index()">@Messages.get("views.main.planeTypesMenu")</a></li>
+                             <li @if(request.path contains routes.Planes.index().url)  { class="active" } ><a href="@routes.Planes.index()">@Messages.get("views.main.planesMenu")</a></li>
+                        </ul>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Messages.get("views.main.switchLanguage") <b class="caret"></b></a>
                         <ul class="dropdown-menu">

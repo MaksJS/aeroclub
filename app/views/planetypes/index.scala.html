@@ -1,0 +1,73 @@
+@(planeTypes: com.avaje.ebean.Page[PlaneType])
+
+@import helper._
+@import helper.twitterBootstrap._
+@import play.i18n._
+
+@getPageSize = @{
+    val queryString = request.queryString
+    if(queryString.containsKey("pageSize")) {
+        queryString.get("pageSize")(0).toInt.asInstanceOf[Int]
+    }
+    else {
+        10.asInstanceOf[Int]
+    }
+}
+
+@main(Messages.get("views.planetype.index.title")) {
+    
+    @if(flash.containsKey("success")) {
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            @flash.get("success")
+        </div>
+    }
+
+    @form(routes.PlaneTypes._new) {
+        <input type="submit" value="@Messages.get("views.planetypes.index.add")" class="btn">
+    }
+
+    <h2>@Messages.get("views.planetypes.index.subtitle", planeTypes.getTotalRowCount.toString)</h2>
+
+    @pagination(planeTypes, routes.PlaneTypes.index _)
+
+    <table class="table">
+        <tr>
+            <th>@Messages.get("views.planetypes.index.description")</th>
+             <td colspan="3">    
+                <div class="btn-group pull-right">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                        @Messages.get("views.nbPerPages")
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu pagination-centered">
+                        @for(value: Int <- Array(10, 25, 50, 100)) {
+                            <li><a href="@routes.PlaneTypes.index(0, value)">@if(getPageSize == value) { <i class="icon-ok"></i> } @value</a></li>
+                        }
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    @for(planeType <- planeTypes.getList) {
+        <tr>
+            <td>@planeType</td>
+            <td>
+            @form(routes.PlaneTypes.show(planeType.id)) {
+                <input type="submit" value="@Messages.get("views.show")" class="btn btn-primary">
+            }
+            </td>
+            <td>
+            @form(routes.PlaneTypes.edit(planeType.id)) {
+                <input type="submit" value="@Messages.get("views.edit")" class="btn btn-primary">
+            }
+            </td>
+            <td>
+            @form(routes.PlaneTypes.delete(planeType.id)) {
+                <input type="submit" value="@Messages.get("views.delete")" class="btn btn-primary">
+            }
+            </td>
+        </tr>
+    }
+    </table>
+
+}

@@ -18,6 +18,7 @@
     @form(routes.Planes.create) {
         
         @inputText(planeForm("matriculation"), '_label -> Messages.get("views.planes.matriculation"))
+        @select(planeForm("planeType.id"), options(PlaneType.options), '_label -> Messages.get("views.planetype.planetype"))
         @inputText(planeForm("price"),         '_label -> Messages.get("views.planes.price"))
         @inputText(planeForm("weekReduction"), '_label -> Messages.get("views.planes.weekReduction"))
         

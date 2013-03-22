@@ -20,7 +20,20 @@ create table plane (
   matriculation             varchar(255),
   price                     double,
   week_reduction            double,
+  plane_type_id             bigint,
   constraint pk_plane primary key (id))
+;
+
+create table plane_type (
+  id                        bigint auto_increment not null,
+  description               varchar(255),
+  fee1                      double,
+  fee2                      double,
+  fee3                      double,
+  fee_time1                 integer,
+  fee_time2                 integer,
+  fee_time3                 integer,
+  constraint pk_plane_type primary key (id))
 ;
 
 create table user (
@@ -34,6 +47,8 @@ create table user (
 
 alter table flight add constraint fk_flight_plane_1 foreign key (plane_id) references plane (id) on delete restrict on update restrict;
 create index ix_flight_plane_1 on flight (plane_id);
+alter table plane add constraint fk_plane_planeType_2 foreign key (plane_type_id) references plane_type (id) on delete restrict on update restrict;
+create index ix_plane_planeType_2 on plane (plane_type_id);
 
 
 
@@ -44,6 +59,8 @@ SET FOREIGN_KEY_CHECKS=0;
 drop table flight;
 
 drop table plane;
+
+drop table plane_type;
 
 drop table user;
 

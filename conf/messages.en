@@ -37,6 +37,8 @@ views.nbPerPages=Number per pages
 
 # --- Main
 views.main.flightsMenu=Flights management
+views.main.planes=Planes
+views.main.planeTypesMenu=Plane types management
 views.main.planesMenu=Planes management
 views.main.switchLanguage=Switch language
 views.main.logout=Logout
@@ -58,6 +60,7 @@ views.login.connect.me=Sign in
 views.planes.matriculation=Matriculation
 views.planes.price=Price
 views.planes.weekReduction=Week reduction
+views.planetype.planetype=Plane type
 
 views.planes.new.title=Add a plane
 views.planes.new.subtitle=Entering a new plane
@@ -75,6 +78,24 @@ views.planes.index.description=Description
 views.planes.show.title=Details of a plane
 views.planes.show.subtitle=Details of plane n°{0}
 views.planes.show.flights=Under way flights
+
+# --- PlaneTypes
+
+views.planes.description=Description
+views.planes.fee1=Fee price 1
+views.planes.fee2=Fee price 2
+views.planes.fee3=Fee price 3
+views.planes.feetime1=Fee time 1
+views.planes.feetime2=Fee time 2
+views.planes.feetime3=Fee time 3
+
+views.planetype.index.title=Plane types management
+views.planetypes.index.add=Add a new type
+views.planetypes.index.subtitle=Plane types list : {0} type(s)
+views.planetypes.index.description=Description
+
+views.planetypes.new.title=Add a plane type
+views.planetypes.new.subtitle=Entering a new type
 
 # --- Flights
 views.flights.flightReduction=Flight reduction
@@ -106,6 +127,7 @@ views.flights.show.plane=Used plane
 models.plane.toString=Plane n°{0} registered {1}
 models.user.toString=User n°{0} : {1}
 models.flight.toString=Flight n°{0} on {1} with a duration of {2} hour(s)
+models.planetype.toString=Type n°{0} {1}
 
 # --- Controllers messages
 controllers.error=An error has occured
@@ -119,3 +141,5 @@ controllers.application.loginError=Invalid username or password
 controllers.flights.deleteSuccess=The flight has been successfully removed
 
 controllers.planes.deleteSuccess=The plane has been successfully removed
+
+controllers.planetype.deleteSuccess=The plane type has been successfully removed

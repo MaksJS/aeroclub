@@ -10,30 +10,39 @@ import play.i18n.*;
 import com.avaje.ebean.*;
 
 @Entity
-public class Plane extends Model {
-	
+public class PlaneType extends Model {
+
 	@Id
 	public Long id;
 
-	@Required
-	public String matriculation;
-
-	@Required
-	public Double price;
-
-	@Required
-	public Double weekReduction;
-
 	@OneToMany
-	public List<Flight> flights;
+	public List<Plane> planes;
 
-	@ManyToOne
 	@Required
-	public PlaneType planeType;
+	public String description;
 
-	public static Finder<Long, Plane> find = new Finder(Long.class, Plane.class);
+	@Required
+	public Double fee1;
 
-	public static Page<Plane> page(int page, int pageSize) {
+	@Required
+	public Double fee2;
+
+	@Required
+	public double fee3;
+
+	@Required
+	public int fee_time1;
+
+	@Required
+	public int fee_time2;
+
+	@Required
+	public int fee_time3;
+
+
+	public static Finder<Long, PlaneType> find = new Finder(Long.class, PlaneType.class);
+
+	public static Page<PlaneType> page(int page, int pageSize) {
 		return
 			find.where()
 				.findPagingList(pageSize)
@@ -41,14 +50,14 @@ public class Plane extends Model {
 	}
 
 	public String toString() {
-		return Messages.get("models.plane.toString", id, matriculation);
+		return Messages.get("models.planetype.toString", id, description);
 	}
 
 	// Generates a list of options for a html select element
 	public static Map<String,String> options() {
 		LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
-		for (Plane plane : Plane.find.findList()) {
-			options.put(plane.id.toString(), plane.toString());
+		for (PlaneType planetypes : PlaneType.find.findList()) {
+			options.put(planetypes.id.toString(), planetypes.description.toString());
 		}
 		return options;
 	}

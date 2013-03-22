@@ -17,7 +17,7 @@
     
     @form(routes.Flights.update(id)) {
         
-        @inputDate(flightForm("date"),                          '_label -> Messages.get("views.flights.date"))
+        @inputText(flightForm("date"),                          '_label -> Messages.get("views.flights.date"))
         @inputText(flightForm("duration"),                      '_label -> Messages.get("views.flights.duration"))
         @inputText(flightForm("flightReduction"),               '_label -> Messages.get("views.flights.flightReduction"))
         @inputText(flightForm("weekReduction"),                 '_label -> Messages.get("views.flights.weekReduction"))

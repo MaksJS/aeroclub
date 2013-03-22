@@ -21,6 +21,15 @@ POST  /flights                  controllers.Flights.create
 POST  /flight/:id               controllers.Flights.update(id: Long)
 POST  /flight/:id/delete        controllers.Flights.delete(id: Long)
 
+# Planetype
+GET   /planetypes               controllers.PlaneTypes.index(page: Int ?= 0, pageSize: Int ?= 10)
+GET   /planetypes/new           controllers.PlaneTypes._new
+GET   /planetype/:id            controllers.PlaneTypes.show(id: Long)
+GET   /planetype/:id/edit       controllers.PlaneTypes.edit(id: Long)
+POST  /planetypes               controllers.PlaneTypes.create
+POST  /planetype/:id            controllers.PlaneTypes.update(id: Long)
+POST  /planetype/:id/delete     controllers.PlaneTypes.delete(id: Long)
+
 # Planes
 GET   /planes.json              controllers.Planes.indexJson
 GET   /planes                   controllers.Planes.index(page: Int ?= 0, pageSize: Int ?= 10)
