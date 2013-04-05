@@ -43,6 +43,7 @@ views.main.planesMenu=Gestion des avions
 views.main.switchLanguage=Changer de langue
 views.main.logout=Déconnexion
 views.main.editProfile=Editer profil
+views.main.viewAccount=Voir votre compte
 
 #--- NotFound
 views.notFound.title=Erreur 404 : Page non trouvé
@@ -142,6 +143,10 @@ views.users.edit.submit=Modifier votre profil
 views.users.new.title=Inscription
 views.users.new.subtitle=S''inscrire
 views.users.new.submit=Créer un nouveau compte
+views.users.account.title=Etat du compte de {0}
+views.users.account.subtitle=Etat de votre compte
+views.users.account.amountRemaining=Montant restant
+views.users.account.transactionsList=Liste des transactions
 
 # --- Models messages
 models.plane.toString=Avion n°{0} immatriculé {1}
@@ -149,6 +154,7 @@ models.user.toString=Utilisateur n°{0} : {1}
 models.flight.toString=Vol n°{0} du {1} d''une durée de {2} heure(s)
 models.planetype.toString=Type n°{0} {1}
 models.account.toString=Le montant actuel du compte est de {0} Euros, il reste {1} heure(s) sur le forfait 1, {2} sur le forfait 2 et {3} sur le forfait 3
+models.transaction.toString=Transaction pour un montant de {0}€ le {1}
 
 # --- Controllers messages
 controllers.error=Une erreur est survenue

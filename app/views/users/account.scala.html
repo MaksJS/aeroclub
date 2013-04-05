@@ -1,0 +1,21 @@
+@(account: Account)
+
+@import helper._
+@import helper.twitterBootstrap._
+@import play.i18n._
+
+@main(Messages.get("views.users.account.title", session.get("user"))) {
+
+    <h2>@Messages.get("views.users.account.subtitle")</h2>
+    
+    <b>@Messages.get("views.users.account.amountRemaining")</b> : @account.amount €
+
+    <br />
+
+    <h4>@Messages.get("views.users.account.transactionsList")</h4>
+
+    @for(transaction <- account.transactions) {
+    	@transaction
+    	<br />
+    }
+}

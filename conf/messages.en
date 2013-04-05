@@ -43,6 +43,7 @@ views.main.planesMenu=Planes management
 views.main.switchLanguage=Switch language
 views.main.logout=Logout
 views.main.editProfile=Edit profile
+views.main.viewAccount=View your account
 
 #--- NotFound
 views.notFound.title=Error 404 : Page not found
@@ -142,6 +143,10 @@ views.users.edit.submit=Edit
 views.users.new.title=Sign up
 views.users.new.subtitle=Sign up
 views.users.new.submit=Create a new account
+views.users.account.title=State of {0}''s account
+views.users.account.subtitle=State of your account
+views.users.account.amountRemaining=Amount remaining
+views.users.account.transactionsList=Transactions list
 
 # --- Models messages
 models.plane.toString=Plane n°{0} registered {1}
@@ -149,6 +154,7 @@ models.user.toString=User n°{0} : {1}
 models.flight.toString=Flight n°{0} on {1} with a duration of {2} hour(s)
 models.planetype.toString=Type n°{0} {1}
 models.account.toString=The current account balance is {0} Euros, and there is {1} hour(s) remaining for the first fee, {2} for the second and {3} for the third.
+models.transaction.toString=Transaction for an amount of {0}€ on {1}
 
 # --- Controllers messages
 controllers.error=An error has occured

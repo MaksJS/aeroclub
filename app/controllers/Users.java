@@ -6,6 +6,7 @@ import play.data.*;
 import views.html.users.*;
 import models.User;
 import models.Account;
+import models.Transaction;
 import play.i18n.*;
 
 public class Users extends Controller {
@@ -16,6 +17,16 @@ public class Users extends Controller {
 	// GET /users/new
 	public static Result _new() {
 		return ok(_new.render(userForm));
+	}
+
+	// GET /user/account
+	@Security.Authenticated(Secured.class)
+	public static Result account() {
+		User user = User.find
+						.where()
+						.eq("username", session().get("user"))
+						.findUnique();
+		return ok(account.render(user.getAccount()));
 	}
 
 	// GET /user/edit

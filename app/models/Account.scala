@@ -5,11 +5,21 @@ import anorm._
 import anorm.SqlParser._
 import play.api.Play.current
 
-case class Account(
-	id:     Pk[Long], 
-	amount: Double, 
-	userId: Long
-)
+case class Account(id: Pk[Long], amount: Double, userId: Long) {
+	def transactions: Seq[Transaction] = {
+    DB.withConnection { implicit c =>
+      SQL(
+        """
+          SELECT *
+          FROM transaction
+          WHERE account_id = {account_id}
+        """
+      ).on(
+        'account_id -> id
+      ).as(Transaction.transaction*)
+    }
+  }
+}
 
 object Account {
 

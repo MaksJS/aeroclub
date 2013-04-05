@@ -42,6 +42,7 @@ POST  /plane/:id/delete          controllers.Planes.delete(id: Long)
 
 # Users
 GET   /user/edit                 controllers.Users.edit
+GET   /user/account              controllers.Users.account
 POST  /user                      controllers.Users.update
 GET   /users/new                 controllers.Users._new
 POST  /users                     controllers.Users.create
