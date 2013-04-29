@@ -9,7 +9,7 @@ import controllers.Scalate
 object Global extends GlobalSettings {
 
 	override def onHandlerNotFound(request: RequestHeader): Result = {
-		NotFound(Scalate("notFound.scaml").render('request -> request))
+		NotFound(Scalate("notFound").render('request -> request))
 	}
 
 	override def onStart(app: Application) {

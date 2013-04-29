@@ -33,7 +33,7 @@ object Scalate {
 
     def render(args: (Symbol, Any)*) = {
       ScalateContent{
-        scalateEngine.layout(name, args.map {
+        scalateEngine.layout(name + "." + format, args.map {
           case (k, v) => k.name -> v
         } toMap)
       }
