@@ -15,7 +15,7 @@ public class Planes extends Controller {
 
 	// GET /planes.json
 	public static Result indexJson() {
-		return ok(new JSONSerializer().exclude("flights").exclude("class").serialize(Plane.find.all()));
+		return ok(new JSONSerializer().exclude("flights", "planeType", "class").serialize(Plane.find.all()));
 	}
 
 	// GET /planes?page=0&pageSize=10

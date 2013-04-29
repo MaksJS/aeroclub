@@ -1,0 +1,5 @@
+-@ val request: play.api.mvc.RequestHeader
+- import play.i18n._
+
+= Messages.get("views.notFound.title")
+%br= Messages.get("views.notFound.message", request.path)

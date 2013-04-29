@@ -4,11 +4,12 @@ import play.api.mvc.Results._
 import views.html._
 import models.User
 import models.Account
+import controllers.Scalate
 
 object Global extends GlobalSettings {
 
 	override def onHandlerNotFound(request: RequestHeader): Result = {
-		NotFound(views.html.notFound(request))
+		NotFound(Scalate("notFound.scaml").render('request -> request))
 	}
 
 	override def onStart(app: Application) {

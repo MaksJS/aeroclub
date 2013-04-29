@@ -7,6 +7,7 @@ import views.html.flights.*;
 import models.Flight;
 import play.i18n.*;
 import flexjson.JSONSerializer;
+import flexjson.transformer.DateTransformer;
 
 public class Flights extends Controller {
   
@@ -15,7 +16,7 @@ public class Flights extends Controller {
 
 	// GET /flights.json
 	public static Result indexJson() {
-		return ok(new JSONSerializer().exclude("class").serialize(Flight.find.all()));
+		return ok(new JSONSerializer().exclude("class", "plane").transform(new DateTransformer("dd/MM/yyyy"), "date").serialize(Flight.find.all()));
 	}
 
 	// GET /flights?page=0&pageSize=10

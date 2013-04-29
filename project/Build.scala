@@ -14,7 +14,8 @@ object ApplicationBuild extends Build {
       filters,
       anorm,
       "mysql" % "mysql-connector-java" % "5.1.21",
-      "net.sf.flexjson" % "flexjson" % "2.1"
+      "net.sf.flexjson" % "flexjson" % "2.1",
+      "org.fusesource.scalate" % "scalate-core_2.10" % "1.6.1"
     )
 
     val main = play.Project(appName, appVersion, appDependencies).settings(
