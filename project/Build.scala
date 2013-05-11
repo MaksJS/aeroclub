@@ -14,6 +14,7 @@ object ApplicationBuild extends Build {
       filters,
       anorm,
       "mysql" % "mysql-connector-java" % "5.1.21",
+      "postgresql" % "postgresql" % "9.1-901-1.jdbc4",
       "net.sf.flexjson" % "flexjson" % "2.1",
       "org.fusesource.scalate" % "scalate-core_2.10" % "1.6.1"
     )
