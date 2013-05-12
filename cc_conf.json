@@ -1,6 +1,5 @@
 {
    "deploy":{
-	   "-applyEvolutions":
-	   		"default":true
+	   "goal:" :"-DapplyEvolutions.default=true"
 	}
 }
