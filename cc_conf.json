@@ -1,5 +1,6 @@
 {
    "deploy":{
-	   "-DapplyEvolutions.default":true
+	   "-applyEvolutions":
+	   		"default":true
 	}
 }
