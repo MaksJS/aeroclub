@@ -1,0 +1,11 @@
+@import helper._
+@import helper.twitterBootstrap._
+@import play.i18n._
+
+@main(Messages.get("views.forbidden.title")) {
+    
+    <h2>@Messages.get("views.forbidden.message")</h2>
+
+    <a href="@request.getHeader("Referer")" class="btn btn-link">@Messages.get("views.back")</a>
+
+}
