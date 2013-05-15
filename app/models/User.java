@@ -45,6 +45,12 @@ public class User extends Model {
             	.findUnique();
     }
     
+    public static void save(User user) {
+    	user.password = Crypto.sign(user.password);
+    	user.save();
+    	Account.create(user);
+    }
+
     public static void update(Long id, User user) {
     	user.password = Crypto.sign(user.password);
     	user.update(id);

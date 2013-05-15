@@ -49,6 +49,10 @@ views.main.viewAccount=Voir votre compte
 views.notFound.title=Erreur 404 : Page non trouvé
 views.notFound.message=Chemin {0} non trouvée
 
+#--- Forbidden
+views.forbidden.title=Erreur 403 : Accès interdit
+views.forbidden.message=Vous n''avez pas les droits suffisants pour effectuer cette action
+
 # --- Index
 views.index.title=Page d''accueil aeroclub
 views.index.welcome.message=Bienvenue sur l''application de l''aeroclub
@@ -157,6 +161,7 @@ models.account.toString=Le montant actuel du compte est de {0} Euros, il reste {
 models.transaction.toString=Transaction pour un montant de {0}€ le {1}
 
 # --- Controllers messages
+controllers.errorAccountName=Un compte existe déjà avec le même nom d'utilisateur
 controllers.error=Une erreur est survenue
 controllers.updateSuccess={0} a été correctement modifié
 controllers.createSuccess={0} a été correctement créé

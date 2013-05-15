@@ -49,6 +49,10 @@ views.main.viewAccount=View your account
 views.notFound.title=Error 404 : Page not found
 views.notFound.message=Path {0} not found
 
+#--- Forbidden
+views.forbidden.title=Error 403 : Access forbidden
+views.forbidden.message=You don''t have the rights to do this action
+
 # --- Index
 views.index.title=Aeroclub homepage
 views.index.welcome.message=Welcome to the aeroclub application
@@ -157,6 +161,7 @@ models.account.toString=The current account balance is {0} Euros, and there is {
 models.transaction.toString=Transaction for an amount of {0}€ on {1}
 
 # --- Controllers messages
+controllers.errorAccountName=An account already exists with the same username
 controllers.error=An error has occured
 controllers.updateSuccess={0} has been successfully modified
 controllers.createSuccess={0} has been successfully created

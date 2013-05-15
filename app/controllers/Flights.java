@@ -77,8 +77,13 @@ public class Flights extends Controller {
 	// POST /flights/:id/delete
 	@Security.Authenticated(Secured.class)
 	public static Result delete(Long id) {
-		Flight.find.byId(id).delete();
-		flash("success", Messages.get("controllers.flights.deleteSuccess"));
-		return GO_HOME;
+		if (Secured.isAdmin()) {
+			Flight.find.byId(id).delete();
+			flash("success", Messages.get("controllers.flights.deleteSuccess"));
+			return GO_HOME;
+		}
+		else {
+			return forbidden(views.html.forbidden.render());
+		}
 	}
 }

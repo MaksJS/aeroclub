@@ -17,4 +17,8 @@ public class Secured extends Authenticator {
     public Result onUnauthorized(Context ctx) {
     	return redirect(routes.Application.index());
     }
+
+    public static Boolean isAdmin() {
+    	return Context.current().request().username().equals("admin");
+    }
 }

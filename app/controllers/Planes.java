@@ -33,51 +33,76 @@ public class Planes extends Controller {
 	// GET /planes/new
 	@Security.Authenticated(Secured.class)
 	public static Result _new() {
-		return ok(_new.render(planeForm));
+		if (Secured.isAdmin()) {
+			return ok(_new.render(planeForm));
+		}
+		else {
+			return forbidden(views.html.forbidden.render());
+		}
 	}
 
 	// GET /planes/:id/edit
 	@Security.Authenticated(Secured.class)
 	public static Result edit(Long id) {
-		Form<Plane> filledForm = planeForm.fill(Plane.find.byId(id));
-		return ok(edit.render(id, filledForm));
+		if (Secured.isAdmin()) {
+			Form<Plane> filledForm = planeForm.fill(Plane.find.byId(id));
+			return ok(edit.render(id, filledForm));
+		}
+		else {
+			return forbidden(views.html.forbidden.render());
+		}
 	}
 
 	// POST /planes
 	@Security.Authenticated(Secured.class)
 	public static Result create() {
-		Form<Plane> filledForm = planeForm.bindFromRequest();
-		if (filledForm.hasErrors()) {
-			flash("error", Messages.get("controllers.error"));
-			return badRequest(_new.render(filledForm));
+		if (Secured.isAdmin()) {
+			Form<Plane> filledForm = planeForm.bindFromRequest();
+			if (filledForm.hasErrors()) {
+				flash("error", Messages.get("controllers.error"));
+				return badRequest(_new.render(filledForm));
+			}
+			else {
+				filledForm.get().save();
+				flash("success", Messages.get("controllers.createSuccess", filledForm.get()));
+				return GO_HOME;
+			}
 		}
 		else {
-			filledForm.get().save();
-			flash("success", Messages.get("controllers.createSuccess", filledForm.get()));
-			return GO_HOME;
+			return forbidden(views.html.forbidden.render());
 		}
 	}
 
 	// POST /planes/:id
 	@Security.Authenticated(Secured.class)
 	public static Result update(Long id) {
-		Form<Plane> filledForm = planeForm.bindFromRequest();
-		if (filledForm.hasErrors()) {
-			flash("error", Messages.get("controllers.error"));
-			return badRequest(edit.render(id, filledForm));
+		if (Secured.isAdmin()) {
+			Form<Plane> filledForm = planeForm.bindFromRequest();
+			if (filledForm.hasErrors()) {
+				flash("error", Messages.get("controllers.error"));
+				return badRequest(edit.render(id, filledForm));
+			}
+			else {
+				filledForm.get().update(id);
+				flash("success", Messages.get("controllers.updateSuccess", filledForm.get()));
+				return GO_HOME;
+			}
 		}
 		else {
-			filledForm.get().update(id);
-			flash("success", Messages.get("controllers.updateSuccess", filledForm.get()));
-			return GO_HOME;
+			return forbidden(views.html.forbidden.render());
 		}
 	}
 
 	// POST /planes/:id/delete
 	@Security.Authenticated(Secured.class)
 	public static Result delete(Long id) {
-		Plane.find.byId(id).delete();
-		flash("success", Messages.get("controllers.planes.deleteSuccess"));
-		return GO_HOME;
+		if (Secured.isAdmin()) {
+			Plane.find.byId(id).delete();
+			flash("success", Messages.get("controllers.planes.deleteSuccess"));
+			return GO_HOME;
+		}
+		else {
+			return forbidden(views.html.forbidden.render());
+		}
 	}
 }

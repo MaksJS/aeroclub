@@ -12,5 +12,3 @@ dist
 /.classpath
 /.project
 /RUNNING_PID
-conf/evolutions/default/1.sql
-conf/application.conf

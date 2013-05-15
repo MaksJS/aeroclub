@@ -68,10 +68,15 @@ public class Users extends Controller {
 			return badRequest(_new.render(filledForm));
 		}
 		else {
-			filledForm.get().save();
-			Account.create(filledForm.get());
-			flash("success", Messages.get("controllers.createSuccess", filledForm.get()));
-			return GO_HOME;
+			try {
+				User.save(filledForm.get());
+				flash("success", Messages.get("controllers.createSuccess", filledForm.get()));
+				return GO_HOME;
+			}
+			catch (Exception e) { // if the username already exists
+				flash("error", Messages.get("controllers.errorAccountName"));
+				return badRequest(_new.render(filledForm));
+			}
 		}
 	}
 }
