@@ -5,6 +5,10 @@ import play.mvc.*;
 import play.data.*;
 import views.html.flights.*;
 import models.Flight;
+import models.Transaction;
+import models.Plane;
+import models.Account;
+import models.User;
 import play.i18n.*;
 import flexjson.JSONSerializer;
 import flexjson.transformer.DateTransformer;
@@ -53,9 +57,19 @@ public class Flights extends Controller {
 			return badRequest(_new.render(filledForm));
 		}
 		else {
-			filledForm.get().save();
-			flash("success", Messages.get("controllers.createSuccess", filledForm.get()));
-			return GO_HOME;
+			Flight flight = filledForm.get();
+			Plane plane   = Plane.find.byId(flight.plane.id);
+			Double amount = Transaction.calculateAmount(plane.price, flight.duration, flight.flightReduction, flight.weekReduction, flight.specialPrice);
+			User user     = User.find.where().eq("username", session().get("user")).findUnique();
+			if (Account.withdraw(amount, user)) {
+				flight.save();
+				flash("success", Messages.get("controllers.createSuccess", filledForm.get()));
+				return GO_HOME;
+			}
+			else {
+				flash("error", Messages.get("controllers.flights.notEnoughMoney"));
+				return badRequest(_new.render(filledForm));
+			}
 		}
 	}
 

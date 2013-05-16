@@ -3,7 +3,6 @@
 create table transaction (
   id                        bigint auto_increment not null,
   account_id                bigint,
-  flight_id                 bigint,
   date                      datetime,
   amount                    double,
   constraint pk_transaction primary key (id))

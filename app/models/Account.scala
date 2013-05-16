@@ -56,4 +56,30 @@ object Account {
       ).as(account.single)
     }
   }
+
+  def updateAmount(amount: Double, user: User) = {
+    DB.withConnection { implicit c =>
+      SQL(
+        """
+          UPDATE account SET amount = {amount}
+          WHERE user_id = {user_id}
+        """
+      ).on(
+        'amount  -> amount,
+        'user_id -> user.id
+      ).executeUpdate()
+    }
+  }
+
+  def withdraw(amount: Double, user: User): Boolean = {
+    val account   = user.getAccount
+    val newAmount = account.amount - amount
+    newAmount compare 0 match {
+      case 0 | 1 =>
+        Account.updateAmount(newAmount, user)
+        Transaction.create(account, amount)
+        true
+      case -1 => false
+    }
+  }
 }

@@ -171,6 +171,7 @@ controllers.application.login=You have been logged successfully
 controllers.application.loginError=Invalid username or password 
 
 controllers.flights.deleteSuccess=The flight has been successfully removed
+controllers.flights.notEnoughMoney=You don''t have enough credit on your account
 
 controllers.planes.deleteSuccess=The plane has been successfully removed
 

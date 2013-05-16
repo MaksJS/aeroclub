@@ -171,6 +171,7 @@ controllers.application.login=Vous avez été connecté avec succès
 controllers.application.loginError=Nom d''utilisateur ou mot de passe invalide
 
 controllers.flights.deleteSuccess=Le vol a été correctement supprimé
+controllers.flights.notEnoughMoney=Vous n''avez plus assez de crédit sur votre compte
 
 controllers.planes.deleteSuccess=L''avion a été correctement supprimé
 
