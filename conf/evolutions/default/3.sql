@@ -10,8 +10,6 @@ create table transaction (
 
 alter table transaction add constraint fk_transaction_account_4 foreign key (account_id) references account (id) on delete restrict on update restrict;
 create index ix_transaction_account_4 on transaction (account_id);
-alter table transaction add constraint fk_transaction_flight_5 foreign key (flight_id) references flight (id) on delete restrict on update restrict;
-create index ix_transaction_flight_5 on transaction (flight_id);
 
 # --- !Downs
 
