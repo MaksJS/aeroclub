@@ -42,7 +42,7 @@ object Account {
         'id      -> id,
         'amount  -> 0.0, 
         'user_id -> user.id
-      ).executeUpdate()
+      ).executeInsert()
     }
   }
 
