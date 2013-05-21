@@ -33,14 +33,16 @@ object Account {
 
   def create(user: User) {
     DB.withConnection { implicit c =>
+      val id: Long = SQL("select nextval('account_seq')").as(scalar[Long].single)
       SQL(
         """
-          INSERT INTO account(amount, user_id) VALUES ({amount}, {user_id})
+          INSERT INTO account(id, amount, user_id) VALUES ({id}, {amount}, {user_id})
         """
       ).on(
+        'id      -> id,
         'amount  -> 0.0, 
         'user_id -> user.id
-      ).executeInsert()
+      ).executeUpdate()
     }
   }
 

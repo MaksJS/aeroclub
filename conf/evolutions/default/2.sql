@@ -1,19 +1,19 @@
 # --- !Ups
 
 create table account (
-  id                        bigint auto_increment not null,
-  amount                    double,
+  id                        bigint not null,
+  amount                    float,
   user_id                   bigint,
   constraint pk_account primary key (id))
 ;
 
-alter table account add constraint fk_account_user_3 foreign key (user_id) references user (id) on delete restrict on update restrict;
+create sequence account_seq;
+
+alter table account add constraint fk_account_user_3 foreign key (user_id) references member (id) on delete restrict on update restrict;
 create index ix_account_user_3 on account (user_id);
 
 # --- !Downs
 
-SET FOREIGN_KEY_CHECKS=0;
+drop table if exists account cascade;
 
-drop table account;
-
-SET FOREIGN_KEY_CHECKS=1;
+drop sequence if exists account_seq;

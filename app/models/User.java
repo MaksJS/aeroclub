@@ -9,6 +9,7 @@ import play.i18n.*;
 import play.libs.Crypto;
 
 @Entity
+@Table(name="member") // fix postgres : user is a reserved name
 public class User extends Model {
 	
 	@Id

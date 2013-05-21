@@ -28,11 +28,13 @@ object Transaction {
 
   def create(account: Account, amount: Double) {
     DB.withConnection { implicit c =>
+      val id: Long = SQL("select nextval('transaction_seq')").as(scalar[Long].single)
       SQL(
         """
-          INSERT INTO transaction(account_id, date, amount) VALUES ({account_id}, {date}, {amount})
+          INSERT INTO transaction(id, account_id, date, amount) VALUES ({id}, {account_id}, {date}, {amount})
         """
       ).on(
+        'id         -> id,
         'account_id -> account.id,
         'date       -> new Date,
         'amount     -> amount
